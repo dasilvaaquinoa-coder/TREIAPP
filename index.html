@@ -27,47 +27,47 @@
 
         const initialWorkouts = {
             "Segunda-feira (Treino A)": [
-                { id: 1, name: "Extensora", sets: "4", reps: "12/10/6-8/RM", load: "20 / 25 / 27 / 30 kg", done: false },
-                { id: 2, name: "Leg Press 45°", sets: "4", reps: "12/8-10/6-8/6-8", load: "170 / 180 / 186 / 188 kg", done: false },
-                { id: 3, name: "Agachamento Livre", sets: "3", reps: "12 / 10 / 6-8", load: "22 / 50 / 58 kg", done: false },
-                { id: 4, name: "Afundo no Smith", sets: "3", reps: "10 / 10 / 10", load: "10 kg", done: false }
+                { id: 1, name: "Extensora", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 6-8 reps", "Série 4: RM"], load: "20 / 25 / 27 / 30 kg", done: false },
+                { id: 2, name: "Leg Press 45°", sets: ["Série 1: 12 reps", "Série 2: 8-10 reps", "Série 3: 6-8 reps", "Série 4: 6-8 reps"], load: "170 / 180 / 186 / 188 kg", done: false },
+                { id: 3, name: "Agachamento Livre", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 6-8 reps"], load: "22 / 50 / 58 kg", done: false },
+                { id: 4, name: "Afundo no Smith", sets: ["Série 1: 10 reps", "Série 2: 10 reps", "Série 3: 10 reps"], load: "10 kg", done: false }
             ],
             "Terça-feira (Treino B)": [
-                { id: 1, name: "Puxada Aberta - Pronada", sets: "4", reps: "12/10/6-8/RM", load: "40 / 43 / 43 / 45 kg", done: false },
-                { id: 2, name: "Remada Baixa - Triângulo", sets: "3", reps: "10-12", load: "40 / 42 / 42 kg", done: false },
-                { id: 3, name: "Pulldown - Corda", sets: "3", reps: "8-10", load: "26 / 27 / 27 kg", done: false },
-                { id: 4, name: "Remada Curvada - Supinada", sets: "3", reps: "10-12", load: "10 / 20 / 20 kg", done: false },
-                { id: 5, name: "Desenvolvimento - Halter", sets: "4", reps: "8-10", load: "20 kg", done: false },
-                { id: 6, name: "Elevação Lateral - Polia", sets: "3", reps: "10-12", load: "5 / 7 kg", done: false }
+                { id: 1, name: "Puxada Aberta - Pronada", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 6-8 reps", "Série 4: RM"], load: "40 / 43 / 43 / 45 kg", done: false },
+                { id: 2, name: "Remada Baixa - Triângulo", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "40 / 42 / 42 kg", done: false },
+                { id: 3, name: "Pulldown - Corda", sets: ["Série 1: 8-10 reps", "Série 2: 8-10 reps", "Série 3: 8-10 reps"], load: "26 / 27 / 27 kg", done: false },
+                { id: 4, name: "Remada Curvada - Supinada", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "10 / 20 / 20 kg", done: false },
+                { id: 5, name: "Desenvolvimento - Halter", sets: ["Série 1: 8-10 reps", "Série 2: 8-10 reps", "Série 3: 8-10 reps", "Série 4: 8-10 reps"], load: "20 kg", done: false },
+                { id: 6, name: "Elevação Lateral - Polia", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "5 / 7 kg", done: false }
             ],
             "Quarta-feira (Treino C)": [
-                { id: 1, name: "Stiff - Barra", sets: "4", reps: "15/12/10/6-8", load: "40 / 50 / 54 / 56 kg", done: false },
-                { id: 2, name: "Cadeira Flexora", sets: "4", reps: "12/10/6-8/RM", load: "55 / 60 / 65 / 65 kg", done: false },
-                { id: 3, name: "Flexora Unilateral", sets: "3", reps: "8-10", load: "10 / 12 / 13 kg", done: false },
-                { id: 4, name: "Levantamento Terra Sumô", sets: "3", reps: "10-12", load: "40 / 43 / 45 kg", done: false },
-                { id: 5, name: "Abdominal com Rolinho", sets: "4", reps: "10-12", load: "Peso corporal", done: false },
-                { id: 6, name: "Flexão Plantar (Leg Press)", sets: "3", reps: "RM", load: "40 / 50 / 55 kg", done: false }
+                { id: 1, name: "Stiff - Barra", sets: ["Série 1: 15 reps", "Série 2: 12 reps", "Série 3: 10 reps", "Série 4: 6-8 reps"], load: "40 / 50 / 54 / 56 kg", done: false },
+                { id: 2, name: "Cadeira Flexora", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 6-8 reps", "Série 4: RM"], load: "55 / 60 / 65 / 65 kg", done: false },
+                { id: 3, name: "Flexora Unilateral", sets: ["Série 1: 8-10 reps", "Série 2: 8-10 reps", "Série 3: 8-10 reps"], load: "10 / 12 / 13 kg", done: false },
+                { id: 4, name: "Levantamento Terra Sumô", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "40 / 43 / 45 kg", done: false },
+                { id: 5, name: "Abdominal com Rolinho", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps", "Série 4: 10-12 reps"], load: "Peso corporal", done: false },
+                { id: 6, name: "Flexão Plantar (Leg Press)", sets: ["Série 1: RM", "Série 2: RM", "Série 3: RM"], load: "40 / 50 / 55 kg", done: false }
             ],
             "Quinta-feira (Treino D)": [
-                { id: 1, name: "Crucifixo - Crossover", sets: "4", reps: "10-12", load: "20 / 24 / 26 kg", done: false },
-                { id: 2, name: "Supino Inclinado - Halter", sets: "3", reps: "10-12", load: "24 / 28 kg", done: false },
-                { id: 3, name: "Tríceps Pulley - Crossover", sets: "4", reps: "15/12/10/6", load: "15 / 17 / 18 / 20 kg", done: false },
-                { id: 4, name: "Tríceps Francês - Polia", sets: "3", reps: "12/10/8", load: "25 / 27 kg", done: false },
-                { id: 5, name: "Rosca Alternada - Inclinado", sets: "3", reps: "10-12", load: "10 / 14 kg", done: false },
-                { id: 6, name: "Rosca Martelo - Crossover", sets: "3", reps: "12/10/8/6", load: "25 / 26 / 27 kg", done: false }
+                { id: 1, name: "Crucifixo - Crossover", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps", "Série 4: 10-12 reps"], load: "20 / 24 / 26 kg", done: false },
+                { id: 2, name: "Supino Inclinado - Halter", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "24 / 28 kg", done: false },
+                { id: 3, name: "Tríceps Pulley - Crossover", sets: ["Série 1: 15 reps", "Série 2: 12 reps", "Série 3: 10 reps", "Série 4: 6 reps"], load: "15 / 17 / 18 / 20 kg", done: false },
+                { id: 4, name: "Tríceps Francês - Polia", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 8 reps"], load: "25 / 27 kg", done: false },
+                { id: 5, name: "Rosca Alternada - Inclinado", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "10 / 14 kg", done: false },
+                { id: 6, name: "Rosca Martelo - Crossover", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 8 reps", "Série 4: 6 reps"], load: "25 / 26 / 27 kg", done: false }
             ],
             "Sexta-feira (Treino E)": [
-                { id: 1, name: "Cadeira Abdutora", sets: "4", reps: "RM", load: "90 / 94 kg", done: false },
-                { id: 2, name: "Elevação Pélvica Articulada", sets: "3", reps: "12/10/8", load: "65 / 70 / 75 kg", done: false },
-                { id: 3, name: "Agachamento Sumô - Halter", sets: "3", reps: "10-12", load: "50 / 60 / 64 kg", done: false },
-                { id: 4, name: "Búlgaro no Smith", sets: "3", reps: "10/10/10", load: "26 kg", done: false },
-                { id: 5, name: "Leg Press 45° Articulado", sets: "4", reps: "12/8/6/6", load: "170 / 180 / 188 kg", done: false }
+                { id: 1, name: "Cadeira Abdutora", sets: ["Série 1: RM", "Série 2: RM", "Série 3: RM", "Série 4: RM"], load: "90 / 94 kg", done: false },
+                { id: 2, name: "Elevação Pélvica Articulada", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 8 reps"], load: "65 / 70 / 75 kg", done: false },
+                { id: 3, name: "Agachamento Sumô - Halter", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "50 / 60 / 64 kg", done: false },
+                { id: 4, name: "Búlgaro no Smith", sets: ["Série 1: 10 reps", "Série 2: 10 reps", "Série 3: 10 reps"], load: "26 kg", done: false },
+                { id: 5, name: "Leg Press 45° Articulado", sets: ["Série 1: 12 reps", "Série 2: 8 reps", "Série 3: 6 reps", "Série 4: 6 reps"], load: "170 / 180 / 188 kg", done: false }
             ]
         };
 
         function App() {
             const [workouts, setWorkouts] = useState(() => {
-                const saved = localStorage.getItem('aquinoa_workouts_v4');
+                const saved = localStorage.getItem('aquinoa_workouts_v5');
                 return saved ? JSON.parse(saved) : initialWorkouts;
             });
             const [activeDay, setActiveDay] = useState("Segunda-feira (Treino A)");
@@ -76,7 +76,7 @@
             const [editingId, setEditingId] = useState(null);
 
             useEffect(() => {
-                localStorage.setItem('aquinoa_workouts_v4', JSON.stringify(workouts));
+                localStorage.setItem('aquinoa_workouts_v5', JSON.stringify(workouts));
             }, [workouts]);
 
             useEffect(() => {
@@ -231,23 +231,28 @@
                                         <h3 className={`font-semibold text-sm transition-all ${ex.done ? 'line-through text-zinc-500' : 'text-white'}`}>
                                             {ex.name}
                                         </h3>
-                                        <div className="flex items-center gap-2 mt-1">
-                                            <span className="text-xs bg-zinc-800/80 text-zinc-300 px-2 py-0.5 rounded-md font-mono border border-zinc-700/40">
-                                                {ex.sets} séries × {ex.reps}
-                                            </span>
+                                        
+                                        {/* Séries detalhadas linha por linha */}
+                                        <div className="mt-2 space-y-1">
+                                            {ex.sets.map((serie, index) => (
+                                                <div key={index} className="text-xs bg-zinc-950/60 text-zinc-300 px-2.5 py-1 rounded-lg font-mono border border-zinc-800/80 flex justify-between items-center">
+                                                    <span className="text-emerald-400 font-semibold">{serie.split(":")[0]}</span>
+                                                    <span className="text-zinc-200">{serie.split(":")[1]}</span>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="flex justify-between items-center mt-3 pt-3 border-t border-zinc-800/60">
                                     <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-mono font-medium">
-                                        <span>⚖️ Carga: {ex.load}</span>
+                                        <span>⚖️ Cargas: {ex.load}</span>
                                     </div>
                                     <button 
                                         onClick={() => setEditingId(editingId === ex.id ? null : ex.id)}
                                         className="text-xs text-zinc-400 hover:text-emerald-400 transition-colors flex items-center gap-1 font-medium cursor-pointer"
                                     >
-                                        ✏️ {editingId === ex.id ? 'Fechar' : 'Editar'}
+                                        ✏️ {editingId === ex.id ? 'Fechar' : 'Editar Carga'}
                                     </button>
                                 </div>
 
