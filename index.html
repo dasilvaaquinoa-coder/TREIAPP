@@ -12,7 +12,7 @@
     <!-- Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <!-- Fonte Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -27,47 +27,47 @@
 
         const initialWorkouts = {
             "Segunda-feira (Treino A)": [
-                { id: 1, name: "Extensora", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 6-8 reps", "Série 4: RM"], load: "20 / 25 / 27 / 30 kg", done: false },
-                { id: 2, name: "Leg Press 45°", sets: ["Série 1: 12 reps", "Série 2: 8-10 reps", "Série 3: 6-8 reps", "Série 4: 6-8 reps"], load: "170 / 180 / 186 / 188 kg", done: false },
-                { id: 3, name: "Agachamento Livre", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 6-8 reps"], load: "22 / 50 / 58 kg", done: false },
-                { id: 4, name: "Afundo no Smith", sets: ["Série 1: 10 reps", "Série 2: 10 reps", "Série 3: 10 reps"], load: "10 kg", done: false }
+                { id: 1, name: "Extensora", targetSets: 4, repsArray: ["12", "10", "6-8", "RM"], load: "20 / 25 / 27 / 30 kg", completedSets: [] },
+                { id: 2, name: "Leg Press 45°", targetSets: 4, repsArray: ["12", "8-10", "6-8", "6-8"], load: "170 / 180 / 186 / 188 kg", completedSets: [] },
+                { id: 3, name: "Agachamento Livre", targetSets: 3, repsArray: ["12", "10", "6-8"], load: "22 / 50 / 58 kg", completedSets: [] },
+                { id: 4, name: "Afundo no Smith", targetSets: 3, repsArray: ["10", "10", "10"], load: "10 kg", completedSets: [] }
             ],
             "Terça-feira (Treino B)": [
-                { id: 1, name: "Puxada Aberta - Pronada", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 6-8 reps", "Série 4: RM"], load: "40 / 43 / 43 / 45 kg", done: false },
-                { id: 2, name: "Remada Baixa - Triângulo", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "40 / 42 / 42 kg", done: false },
-                { id: 3, name: "Pulldown - Corda", sets: ["Série 1: 8-10 reps", "Série 2: 8-10 reps", "Série 3: 8-10 reps"], load: "26 / 27 / 27 kg", done: false },
-                { id: 4, name: "Remada Curvada - Supinada", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "10 / 20 / 20 kg", done: false },
-                { id: 5, name: "Desenvolvimento - Halter", sets: ["Série 1: 8-10 reps", "Série 2: 8-10 reps", "Série 3: 8-10 reps", "Série 4: 8-10 reps"], load: "20 kg", done: false },
-                { id: 6, name: "Elevação Lateral - Polia", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "5 / 7 kg", done: false }
+                { id: 1, name: "Puxada Aberta - Pronada", targetSets: 4, repsArray: ["12", "10", "6-8", "RM"], load: "40 / 43 / 43 / 45 kg", completedSets: [] },
+                { id: 2, name: "Remada Baixa - Triângulo", targetSets: 3, repsArray: ["10-12", "10-12", "10-12"], load: "40 / 42 / 42 kg", completedSets: [] },
+                { id: 3, name: "Pulldown - Corda", targetSets: 3, repsArray: ["8-10", "8-10", "8-10"], load: "26 / 27 / 27 kg", completedSets: [] },
+                { id: 4, name: "Remada Curvada - Supinada", targetSets: 3, repsArray: ["10-12", "10-12", "10-12"], load: "10 / 20 / 20 kg", completedSets: [] },
+                { id: 5, name: "Desenvolvimento - Halter", targetSets: 4, repsArray: ["8-10", "8-10", "8-10", "8-10"], load: "20 kg", completedSets: [] },
+                { id: 6, name: "Elevação Lateral - Polia", targetSets: 3, repsArray: ["10-12", "10-12", "10-12"], load: "5 / 7 kg", completedSets: [] }
             ],
             "Quarta-feira (Treino C)": [
-                { id: 1, name: "Stiff - Barra", sets: ["Série 1: 15 reps", "Série 2: 12 reps", "Série 3: 10 reps", "Série 4: 6-8 reps"], load: "40 / 50 / 54 / 56 kg", done: false },
-                { id: 2, name: "Cadeira Flexora", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 6-8 reps", "Série 4: RM"], load: "55 / 60 / 65 / 65 kg", done: false },
-                { id: 3, name: "Flexora Unilateral", sets: ["Série 1: 8-10 reps", "Série 2: 8-10 reps", "Série 3: 8-10 reps"], load: "10 / 12 / 13 kg", done: false },
-                { id: 4, name: "Levantamento Terra Sumô", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "40 / 43 / 45 kg", done: false },
-                { id: 5, name: "Abdominal com Rolinho", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps", "Série 4: 10-12 reps"], load: "Peso corporal", done: false },
-                { id: 6, name: "Flexão Plantar (Leg Press)", sets: ["Série 1: RM", "Série 2: RM", "Série 3: RM"], load: "40 / 50 / 55 kg", done: false }
+                { id: 1, name: "Stiff - Barra", targetSets: 4, repsArray: ["15", "12", "10", "6-8"], load: "40 / 50 / 54 / 56 kg", completedSets: [] },
+                { id: 2, name: "Cadeira Flexora", targetSets: 4, repsArray: ["12", "10", "6-8", "RM"], load: "55 / 60 / 65 / 65 kg", completedSets: [] },
+                { id: 3, name: "Flexora Unilateral", targetSets: 3, repsArray: ["8-10", "8-10", "8-10"], load: "10 / 12 / 13 kg", completedSets: [] },
+                { id: 4, name: "Levantamento Terra Sumô", targetSets: 3, repsArray: ["10-12", "10-12", "10-12"], load: "40 / 43 / 45 kg", completedSets: [] },
+                { id: 5, name: "Abdominal com Rolinho", targetSets: 4, repsArray: ["10-12", "10-12", "10-12", "10-12"], load: "Peso corporal", completedSets: [] },
+                { id: 6, name: "Flexão Plantar (Leg Press)", targetSets: 3, repsArray: ["RM", "RM", "RM"], load: "40 / 50 / 55 kg", completedSets: [] }
             ],
             "Quinta-feira (Treino D)": [
-                { id: 1, name: "Crucifixo - Crossover", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps", "Série 4: 10-12 reps"], load: "20 / 24 / 26 kg", done: false },
-                { id: 2, name: "Supino Inclinado - Halter", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "24 / 28 kg", done: false },
-                { id: 3, name: "Tríceps Pulley - Crossover", sets: ["Série 1: 15 reps", "Série 2: 12 reps", "Série 3: 10 reps", "Série 4: 6 reps"], load: "15 / 17 / 18 / 20 kg", done: false },
-                { id: 4, name: "Tríceps Francês - Polia", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 8 reps"], load: "25 / 27 kg", done: false },
-                { id: 5, name: "Rosca Alternada - Inclinado", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "10 / 14 kg", done: false },
-                { id: 6, name: "Rosca Martelo - Crossover", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 8 reps", "Série 4: 6 reps"], load: "25 / 26 / 27 kg", done: false }
+                { id: 1, name: "Crucifixo - Crossover", targetSets: 4, repsArray: ["10-12", "10-12", "10-12", "10-12"], load: "20 / 24 / 26 kg", completedSets: [] },
+                { id: 2, name: "Supino Inclinado - Halter", targetSets: 3, repsArray: ["10-12", "10-12", "10-12"], load: "24 / 28 kg", completedSets: [] },
+                { id: 3, name: "Tríceps Pulley - Crossover", targetSets: 4, repsArray: ["15", "12", "10", "6"], load: "15 / 17 / 18 / 20 kg", completedSets: [] },
+                { id: 4, name: "Tríceps Francês - Polia", targetSets: 3, repsArray: ["12", "10", "8"], load: "25 / 27 kg", completedSets: [] },
+                { id: 5, name: "Rosca Alternada - Inclinado", targetSets: 3, repsArray: ["10-12", "10-12", "10-12"], load: "10 / 14 kg", completedSets: [] },
+                { id: 6, name: "Rosca Martelo - Crossover", targetSets: 3, repsArray: ["12", "10", "8", "6"], load: "25 / 26 / 27 kg", completedSets: [] }
             ],
             "Sexta-feira (Treino E)": [
-                { id: 1, name: "Cadeira Abdutora", sets: ["Série 1: RM", "Série 2: RM", "Série 3: RM", "Série 4: RM"], load: "90 / 94 kg", done: false },
-                { id: 2, name: "Elevação Pélvica Articulada", sets: ["Série 1: 12 reps", "Série 2: 10 reps", "Série 3: 8 reps"], load: "65 / 70 / 75 kg", done: false },
-                { id: 3, name: "Agachamento Sumô - Halter", sets: ["Série 1: 10-12 reps", "Série 2: 10-12 reps", "Série 3: 10-12 reps"], load: "50 / 60 / 64 kg", done: false },
-                { id: 4, name: "Búlgaro no Smith", sets: ["Série 1: 10 reps", "Série 2: 10 reps", "Série 3: 10 reps"], load: "26 kg", done: false },
-                { id: 5, name: "Leg Press 45° Articulado", sets: ["Série 1: 12 reps", "Série 2: 8 reps", "Série 3: 6 reps", "Série 4: 6 reps"], load: "170 / 180 / 188 kg", done: false }
+                { id: 1, name: "Cadeira Abdutora", targetSets: 4, repsArray: ["RM", "RM", "RM", "RM"], load: "90 / 94 kg", completedSets: [] },
+                { id: 2, name: "Elevação Pélvica Articulada", targetSets: 3, repsArray: ["12", "10", "8"], load: "65 / 70 / 75 kg", completedSets: [] },
+                { id: 3, name: "Agachamento Sumô - Halter", targetSets: 3, repsArray: ["10-12", "10-12", "10-12"], load: "50 / 60 / 64 kg", completedSets: [] },
+                { id: 4, name: "Búlgaro no Smith", targetSets: 3, repsArray: ["10", "10", "10"], load: "26 kg", completedSets: [] },
+                { id: 5, name: "Leg Press 45° Articulado", targetSets: 4, repsArray: ["12", "8", "6", "6"], load: "170 / 180 / 188 kg", completedSets: [] }
             ]
         };
 
         function App() {
             const [workouts, setWorkouts] = useState(() => {
-                const saved = localStorage.getItem('aquinoa_workouts_v5');
+                const saved = localStorage.getItem('aquinoa_workouts_v6');
                 return saved ? JSON.parse(saved) : initialWorkouts;
             });
             const [activeDay, setActiveDay] = useState("Segunda-feira (Treino A)");
@@ -76,7 +76,7 @@
             const [editingId, setEditingId] = useState(null);
 
             useEffect(() => {
-                localStorage.setItem('aquinoa_workouts_v5', JSON.stringify(workouts));
+                localStorage.setItem('aquinoa_workouts_v6', JSON.stringify(workouts));
             }, [workouts]);
 
             useEffect(() => {
@@ -92,6 +92,11 @@
             const formatTime = (secs) => {
                 const m = Math.floor(secs / 60).toString().padStart(2, '0');
                 const s = (secs % 60).toString().padStart(2, '0');
+                const h = Math.floor(secs / 3600);
+                if (h > 0) {
+                    const remM = Math.floor((secs % 3600) / 60).toString().padStart(2, '0');
+                    return `${h.toString().padStart(2, '0')}:${remM}:${s}`;
+                }
                 return `${m}:${s}`;
             };
 
@@ -103,65 +108,98 @@
                 setEditingId(null);
             };
 
-            const toggleDone = (day, id) => {
+            const toggleSet = (day, exerciseId, setIndex) => {
                 setWorkouts(prev => ({
                     ...prev,
-                    [day]: prev[day].map(ex => ex.id === id ? { ...ex, done: !ex.done } : ex)
+                    [day]: prev[day].map(ex => {
+                        if (ex.id !== exerciseId) return ex;
+                        const currentCompleted = ex.completedSets || [];
+                        const isDone = currentCompleted.includes(setIndex);
+                        const updatedCompleted = isDone
+                            ? currentCompleted.filter(i => i !== setIndex)
+                            : [...currentCompleted, setIndex];
+                        return { ...ex, completedSets: updatedCompleted };
+                    })
                 }));
             };
 
             const currentList = workouts[activeDay] || [];
-            const completedCount = currentList.filter(ex => ex.done).length;
-            const progressPercent = currentList.length > 0 ? Math.round((completedCount / currentList.length) * 100) : 0;
+            
+            let totalSetsInDay = 0;
+            let completedSetsInDay = 0;
+            currentList.forEach(ex => {
+                totalSetsInDay += ex.targetSets;
+                completedSetsInDay += (ex.completedSets || []).length;
+            });
+            const progressPercent = totalSetsInDay > 0 ? Math.round((completedSetsInDay / totalSetsInDay) * 100) : 0;
 
             return (
                 <div className="max-w-md mx-auto p-4 pb-24">
                     {/* Header */}
-                    <header className="mb-6 flex items-center justify-between pt-2">
+                    <header className="mb-5 flex items-center justify-between pt-1">
                         <div>
                             <div className="flex items-center gap-1.5 text-emerald-400 font-semibold text-xs tracking-wider uppercase">
-                                <span>🏋️‍♂️ Painel do Atleta</span>
+                                <span>🏋️‍♂️ Performance Gym</span>
                             </div>
-                            <h1 className="text-2xl font-extrabold text-white mt-0.5 tracking-tight">Treino Semanal</h1>
+                            <h1 className="text-2xl font-black text-white mt-0.5 tracking-tight">Treino Semanal</h1>
                         </div>
-                        <div className="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm">
+                        <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-zinc-950 font-black text-sm flex items-center justify-center shadow-lg shadow-emerald-500/20">
                             AB
                         </div>
                     </header>
 
-                    {/* Cronômetro */}
-                    <div className="bg-gradient-to-b from-zinc-900 to-zinc-900/90 border border-zinc-800/80 rounded-3xl p-5 mb-6 shadow-xl relative overflow-hidden">
-                        <div className="flex justify-between items-center mb-2">
-                            <span className="text-zinc-400 text-xs font-semibold uppercase tracking-wider">⏱️ Descanso</span>
-                            <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-medium">Série Ativa</span>
+                    {/* Cronômetro Circular Estilo Smartphone */}
+                    <div className="bg-zinc-900/90 border border-zinc-800/80 rounded-3xl p-6 mb-5 shadow-2xl relative overflow-hidden backdrop-blur-md flex flex-col items-center">
+                        <div className="absolute -top-12 -right-12 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                        
+                        <div className="w-full flex justify-between items-center mb-4">
+                            <span className="text-zinc-400 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                                ⏱️ Descanso
+                            </span>
+                            <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-0.5 rounded-full font-bold tracking-wide">
+                                Série Ativa
+                            </span>
                         </div>
-                        <div className="text-5xl font-mono font-black text-white text-center py-2 tracking-tight">
-                            {formatTime(timer)}
+
+                        {/* Círculo Principal do Relógio */}
+                        <div className="relative w-48 h-48 rounded-full border-4 border-zinc-800 flex flex-col items-center justify-center shadow-inner bg-zinc-950/50 mb-4">
+                            <div className="absolute top-2 w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></div>
+                            <div className="text-3xl font-mono font-black text-white tracking-wider drop-shadow-md">
+                                {formatTime(timer)}
+                            </div>
+                            <button 
+                                onClick={() => setTimer(t => t + 60)}
+                                className="mt-2 text-[11px] text-emerald-400 font-semibold bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 px-3 py-1 rounded-full transition-all cursor-pointer"
+                            >
+                                +1:00
+                            </button>
                         </div>
-                        <div className="flex justify-center gap-2 mt-3">
+
+                        {/* Botões de Controlo do Cronômetro */}
+                        <div className="w-full flex items-center gap-2">
                             <button 
                                 onClick={() => { setTimer(0); setIsTimerRunning(true); }} 
-                                className="flex-1 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold py-2.5 rounded-2xl text-xs transition-all active:scale-95 flex items-center justify-center gap-1.5 shadow-lg cursor-pointer"
+                                className="flex-1 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-extrabold py-3 rounded-2xl text-xs transition-all active:scale-95 shadow-lg shadow-emerald-500/20 cursor-pointer flex items-center justify-center gap-1.5"
                             >
-                                ▶ Iniciar
+                                ▶ {isTimerRunning ? 'A Contar' : 'Iniciar'}
                             </button>
                             <button 
                                 onClick={() => setIsTimerRunning(false)} 
-                                className="flex-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold py-2.5 rounded-2xl text-xs transition-all active:scale-95 flex items-center justify-center gap-1.5 border border-zinc-700/50 cursor-pointer"
+                                className="flex-1 bg-zinc-800/80 hover:bg-zinc-700 text-zinc-200 font-bold py-3 rounded-2xl text-xs transition-all active:scale-95 border border-zinc-700/60 cursor-pointer flex items-center justify-center gap-1.5"
                             >
                                 ⏸ Pausar
                             </button>
                             <button 
                                 onClick={() => { setIsTimerRunning(false); setTimer(0); }} 
-                                className="bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white px-3.5 py-2.5 rounded-2xl text-xs transition-all active:scale-95 flex items-center justify-center border border-zinc-700/50 cursor-pointer"
+                                className="bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-white px-4 py-3 rounded-2xl text-xs transition-all active:scale-95 border border-zinc-700/60 cursor-pointer flex items-center justify-center"
                             >
                                 🔄
                             </button>
                         </div>
                     </div>
 
-                    {/* Seletor de Dias */}
-                    <div className="flex overflow-x-auto gap-2 mb-6 pb-2 no-scrollbar">
+                    {/* Seletor de Dias (Abas) */}
+                    <div className="flex overflow-x-auto gap-2 mb-5 pb-2 no-scrollbar">
                         {Object.keys(workouts).map((day) => {
                             const isSelected = activeDay === day;
                             const label = day.split(" ")[0].replace("-feira", "");
@@ -170,14 +208,14 @@
                                 <button
                                     key={day}
                                     onClick={() => setActiveDay(day)}
-                                    className={`px-4 py-2.5 rounded-2xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-2 cursor-pointer ${
+                                    className={`px-4 py-3 rounded-2xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-2 cursor-pointer ${
                                         isSelected 
-                                            ? 'bg-emerald-500 text-zinc-950 font-bold shadow-lg scale-105' 
+                                            ? 'bg-emerald-500 text-zinc-950 shadow-lg shadow-emerald-500/20 scale-105' 
                                             : 'bg-zinc-900/90 text-zinc-400 border border-zinc-800/80 hover:border-zinc-700'
                                     }`}
                                 >
                                     <span>{label}</span>
-                                    <span className={`text-[10px] px-1.5 py-0.5 rounded-md font-bold ${isSelected ? 'bg-zinc-950/20 text-zinc-950' : 'bg-zinc-800 text-zinc-300'}`}>
+                                    <span className={`text-[10px] px-1.5 py-0.5 rounded-md font-black ${isSelected ? 'bg-zinc-950/20 text-zinc-950' : 'bg-zinc-800 text-zinc-400'}`}>
                                         {letter}
                                     </span>
                                 </button>
@@ -185,99 +223,127 @@
                         })}
                     </div>
 
-                    {/* Progresso do Treino */}
-                    <div className="mb-4 bg-zinc-900/50 border border-zinc-800/50 rounded-2xl p-3.5 flex items-center justify-between gap-4">
-                        <div className="flex-1">
-                            <div className="flex justify-between items-center text-xs mb-1.5">
-                                <span className="text-zinc-400 font-medium">Concluído hoje</span>
-                                <span className="text-emerald-400 font-bold">{completedCount} de {currentList.length} ({progressPercent}%)</span>
-                            </div>
-                            <div className="w-full bg-zinc-800 rounded-full h-2 overflow-hidden">
-                                <div 
-                                    className="bg-emerald-500 h-full rounded-full transition-all duration-300 ease-out" 
-                                    style={{ width: `${progressPercent}%` }}
-                                ></div>
-                            </div>
+                    {/* Progresso de Séries */}
+                    <div className="mb-5 bg-zinc-900/70 border border-zinc-800/80 rounded-2xl p-4">
+                        <div className="flex justify-between items-center text-xs mb-2">
+                            <span className="text-zinc-400 font-bold uppercase tracking-wider">Progresso de Séries</span>
+                            <span className="text-emerald-400 font-black">{completedSetsInDay} de {totalSetsInDay} séries ({progressPercent}%)</span>
+                        </div>
+                        <div className="w-full bg-zinc-800 rounded-full h-2.5 overflow-hidden">
+                            <div 
+                                className="bg-gradient-to-r from-emerald-500 to-emerald-400 h-full rounded-full transition-all duration-300 ease-out" 
+                                style={{ width: `${progressPercent}%` }}
+                            ></div>
                         </div>
                     </div>
 
                     {/* Lista de Exercícios */}
-                    <div className="space-y-3">
-                        <div className="flex justify-between items-center text-xs font-semibold text-zinc-400 uppercase tracking-wider px-1">
+                    <div className="space-y-4">
+                        <div className="flex justify-between items-center text-xs font-bold text-zinc-400 uppercase tracking-wider px-1">
                             <span>{activeDay}</span>
                         </div>
 
-                        {currentList.map((ex) => (
-                            <div 
-                                key={ex.id} 
-                                className={`group bg-zinc-900/90 border rounded-2xl p-4 transition-all duration-200 ${
-                                    ex.done 
-                                        ? 'border-emerald-500/30 bg-emerald-500/[0.03] opacity-80' 
-                                        : 'border-zinc-800/80 hover:border-zinc-700'
-                                }`}
-                            >
-                                <div className="flex items-start justify-between gap-3">
-                                    <button 
-                                        onClick={() => toggleDone(activeDay, ex.id)}
-                                        className={`mt-0.5 w-5 h-5 rounded-lg border flex items-center justify-center transition-all cursor-pointer ${
-                                            ex.done 
-                                                ? 'bg-emerald-500 border-emerald-500 text-zinc-950 font-bold' 
-                                                : 'border-zinc-700 group-hover:border-emerald-500/50'
-                                        }`}
-                                    >
-                                        {ex.done && "✓"}
-                                    </button>
-                                    <div className="flex-1">
-                                        <h3 className={`font-semibold text-sm transition-all ${ex.done ? 'line-through text-zinc-500' : 'text-white'}`}>
-                                            {ex.name}
-                                        </h3>
-                                        
-                                        {/* Séries detalhadas linha por linha */}
-                                        <div className="mt-2 space-y-1">
-                                            {ex.sets.map((serie, index) => (
-                                                <div key={index} className="text-xs bg-zinc-950/60 text-zinc-300 px-2.5 py-1 rounded-lg font-mono border border-zinc-800/80 flex justify-between items-center">
-                                                    <span className="text-emerald-400 font-semibold">{serie.split(":")[0]}</span>
-                                                    <span className="text-zinc-200">{serie.split(":")[1]}</span>
-                                                </div>
-                                            ))}
+                        {currentList.map((ex) => {
+                            const completedCount = (ex.completedSets || []).length;
+                            const isAllDone = completedCount === ex.targetSets;
+
+                            return (
+                                <div 
+                                    key={ex.id} 
+                                    className={`bg-zinc-900 border rounded-3xl p-4 transition-all duration-200 ${
+                                        isAllDone 
+                                            ? 'border-emerald-500/40 bg-emerald-500/[0.03]' 
+                                            : 'border-zinc-800/80'
+                                    }`}
+                                >
+                                    {/* Cabeçalho do Exercício */}
+                                    <div className="flex items-center justify-between mb-3 pb-3 border-b border-zinc-800/60">
+                                        <div>
+                                            <h3 className={`font-bold text-base ${isAllDone ? 'text-emerald-400' : 'text-white'}`}>
+                                                {ex.name}
+                                            </h3>
+                                            <div className="text-xs text-zinc-400 font-medium mt-0.5">
+                                                Carga: <span className="text-emerald-400 font-mono font-bold">{ex.load}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div className="flex justify-between items-center mt-3 pt-3 border-t border-zinc-800/60">
-                                    <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-mono font-medium">
-                                        <span>⚖️ Cargas: {ex.load}</span>
-                                    </div>
-                                    <button 
-                                        onClick={() => setEditingId(editingId === ex.id ? null : ex.id)}
-                                        className="text-xs text-zinc-400 hover:text-emerald-400 transition-colors flex items-center gap-1 font-medium cursor-pointer"
-                                    >
-                                        ✏️ {editingId === ex.id ? 'Fechar' : 'Editar Carga'}
-                                    </button>
-                                </div>
-
-                                {editingId === ex.id && (
-                                    <div className="mt-3 pt-3 border-t border-zinc-800/80 flex gap-2">
-                                        <input 
-                                            type="text" 
-                                            defaultValue={ex.load}
-                                            id={`input-${ex.id}`}
-                                            className="bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-1.5 text-xs text-white flex-1 font-mono focus:outline-none focus:border-emerald-500"
-                                            placeholder="Ex: 20 / 25 / 30 kg"
-                                        />
                                         <button 
-                                            onClick={() => {
-                                                const val = document.getElementById(`input-${ex.id}`).value;
-                                                handleSaveLoad(activeDay, ex.id, val);
-                                            }}
-                                            className="bg-emerald-500 hover:bg-emerald-400 text-zinc-950 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer"
+                                            onClick={() => setEditingId(editingId === ex.id ? null : ex.id)}
+                                            className="bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs px-3 py-1.5 rounded-xl transition-colors font-semibold cursor-pointer border border-zinc-700/50"
                                         >
-                                            Guardar
+                                            {editingId === ex.id ? 'Fechar' : '✏️ Carga'}
                                         </button>
                                     </div>
-                                )}
-                            </div>
-                        ))}
+
+                                    {/* Form de Edição de Carga */}
+                                    {editingId === ex.id && (
+                                        <div className="mb-4 p-3 bg-zinc-950 border border-zinc-800 rounded-2xl flex gap-2">
+                                            <input 
+                                                type="text" 
+                                                defaultValue={ex.load}
+                                                id={`input-${ex.id}`}
+                                                className="bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-1.5 text-xs text-white flex-1 font-mono focus:outline-none focus:border-emerald-500"
+                                                placeholder="Ex: 20 / 25 / 30 kg"
+                                            />
+                                            <button 
+                                                onClick={() => {
+                                                    const val = document.getElementById(`input-${ex.id}`).value;
+                                                    handleSaveLoad(activeDay, ex.id, val);
+                                                }}
+                                                className="bg-emerald-500 hover:bg-emerald-400 text-zinc-950 px-4 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer"
+                                            >
+                                                Salvar
+                                            </button>
+                                        </div>
+                                    )}
+
+                                    {/* Lista Individual de Séries */}
+                                    <div className="space-y-2">
+                                        {Array.from({ length: ex.targetSets }).map((_, index) => {
+                                            const isSetDone = (ex.completedSets || []).includes(index);
+                                            const repTarget = ex.repsArray[index] || ex.repsArray[0] || "RM";
+
+                                            return (
+                                                <div 
+                                                    key={index}
+                                                    onClick={() => toggleSet(activeDay, ex.id, index)}
+                                                    className={`flex items-center justify-between p-2.5 rounded-2xl border transition-all cursor-pointer ${
+                                                        isSetDone 
+                                                            ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-300' 
+                                                            : 'bg-zinc-950/60 border-zinc-800/80 text-zinc-300 hover:border-zinc-700'
+                                                    }`}
+                                                >
+                                                    <div className="flex items-center gap-2.5">
+                                                        <div className={`w-6 h-6 rounded-lg text-xs font-black flex items-center justify-center ${
+                                                            isSetDone ? 'bg-emerald-500 text-zinc-950' : 'bg-zinc-800 text-zinc-400'
+                                                        }`}>
+                                                            {index + 1}
+                                                        </div>
+                                                        <span className="text-xs font-semibold">
+                                                            Série {index + 1}
+                                                        </span>
+                                                    </div>
+
+                                                    <div className="flex items-center gap-3">
+                                                        <span className="text-xs font-mono bg-zinc-900 px-2.5 py-1 rounded-lg border border-zinc-800 text-zinc-400">
+                                                            {repTarget} reps
+                                                        </span>
+                                                        <button 
+                                                            className={`w-7 h-7 rounded-xl font-bold flex items-center justify-center text-xs transition-all ${
+                                                                isSetDone 
+                                                                    ? 'bg-emerald-500 text-zinc-950 shadow-md shadow-emerald-500/20' 
+                                                                    : 'bg-zinc-800 text-zinc-500 hover:text-zinc-300'
+                                                            }`}
+                                                        >
+                                                            {isSetDone ? '✓' : '+'}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             );
@@ -288,8 +354,4 @@
     </script>
 </body>
 </html>
-
-
-
-
 
